@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\admin\UserProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::controller(UserProfileController::class)->group(function(){
+    Route::get('admin/profile/edit','edit')->name('admin.profile.edit');
+});
+
+
+
 
 Route::get('/', function () {
     return view('welcome');

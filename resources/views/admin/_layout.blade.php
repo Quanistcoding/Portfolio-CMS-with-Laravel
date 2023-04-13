@@ -4,7 +4,7 @@
     <head>
         
         <meta charset="utf-8" />
-        <title>Dashboard | Upcube - Admin & Dashboard Template</title>
+        <title>Dashboard | Upcube - Admin & Dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesdesign" name="author" />
@@ -42,7 +42,7 @@
                     <div class="d-flex">
                         <!-- LOGO -->
                         <div class="navbar-brand-box">
-                            <a href="index.html" class="logo logo-dark">
+                            <a href="/dashboard" class="logo logo-dark">
                                 <span class="logo-sm">
                                     <img src="{{asset('admin/assets/images/logo-sm.png')}}" alt="logo-sm" height="22">
                                 </span>
@@ -51,7 +51,7 @@
                                 </span>
                             </a>
 
-                            <a href="index.html" class="logo logo-light">
+                            <a href="/dashboard" class="logo logo-light">
                                 <span class="logo-sm">
                                     <img src="{{asset('admin/assets/images/logo-sm.png')}}" alt="logo-sm-light" height="22">
                                 </span>
@@ -128,12 +128,11 @@
                                     <i class="ri-account-circle-line"></i>
                                     <span>Profile</span>
                                 </a>
-                                <ul class="sub-menu" aria-expanded="false">
+                                <ul class="sub-menu">
                                     <li><a href="auth-login.html">View Profile</a></li>
-                                    <li><a href="auth-register.html">Edit Profile</a></li>
+                                    <li><a href="{{route('admin.profile.edit')}}">Edit Profile</a></li>
                                 </ul>
                             </li>
-
 
                         </ul>
                     </div>
@@ -177,85 +176,9 @@
         </div>
         <!-- END layout-wrapper -->
 
-        <!-- Right Sidebar -->
-        <div class="right-bar">
-            <div data-simplebar class="h-100">
-                <div class="rightbar-title d-flex align-items-center px-3 py-4">
-            
-                    <h5 class="m-0 me-2">Settings</h5>
+  
 
-                    <a href="javascript:void(0);" class="right-bar-toggle ms-auto">
-                        <i class="mdi mdi-close noti-icon"></i>
-                    </a>
-                </div>
-
-                <!-- Settings -->
-                <hr class="mt-0" />
-                <h6 class="text-center mb-0">Choose Layouts</h6>
-
-                <div class="p-4">
-                    <div class="mb-2">
-                        <img src="{{asset('admin/assets/images/layouts/layout-1.jpg')}}" class="img-fluid img-thumbnail" alt="layout-1">
-                    </div>
-
-                    <div class="form-check form-switch mb-3">
-                        <input class="form-check-input theme-choice" type="checkbox" id="light-mode-switch" checked>
-                        <label class="form-check-label" for="light-mode-switch">Light Mode</label>
-                    </div>
-    
-                    <div class="mb-2">
-                        <img src="{{asset('admin/assets/images/layouts/layout-2.jpg')}}" class="img-fluid img-thumbnail" alt="layout-2">
-                    </div>
-                    <div class="form-check form-switch mb-3">
-                        <input class="form-check-input theme-choice" type="checkbox" id="dark-mode-switch" data-bsStyle="{{asset('admin/assets/css/bootstrap-dark.min.css')}}" data-appStyle="assets/css/app-dark.min.css">
-                        <label class="form-check-label" for="dark-mode-switch">Dark Mode</label>
-                    </div>
-    
-                    <div class="mb-2">
-                        <img src="{{asset('admin/assets/images/layouts/layout-3.jpg')}}" class="img-fluid img-thumbnail" alt="layout-3">
-                    </div>
-                    <div class="form-check form-switch mb-5">
-                        <input class="form-check-input theme-choice" type="checkbox" id="rtl-mode-switch" data-appStyle="{{asset('admin/assets/css/app-rtl.min.css')}}">
-                        <label class="form-check-label" for="rtl-mode-switch">RTL Mode</label>
-                    </div>
-
-            
-                </div>
-
-            </div> <!-- end slimscroll-menu-->
-        </div>
-        <!-- /Right-bar -->
-
-        <!-- Right bar overlay-->
-        <div class="rightbar-overlay"></div>
-
-        <!-- JAVASCRIPT -->
-        <script src="{{asset('admin/assets/libs/jquery/jquery.min.js')}}"></script>
-        <script src="{{asset('admin/assets/libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-        <script src="{{asset('admin/assets/libs/metismenu/metisMenu.min.js')}}"></script>
-        <script src="{{asset('admin/assets/libs/simplebar/simplebar.min.js')}}"></script>
-        <script src="{{asset('admin/assets/libs/node-waves/waves.min.js')}}"></script>
-
-        
-        <!-- apexcharts -->
-        <script src="{{asset('admin/assets/libs/apexcharts/apexcharts.min.js')}}"></script>
-
-        <!-- jquery.vectormap map -->
-        <script src="{{asset('admin/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
-        <script src="{{asset('admin/assets/libs/admin-resources/jquery.vectormap/maps/jquery-jvectormap-us-merc-en.js')}}"></script>
-
-        <!-- Required datatable js -->
-        <script src="{{asset('admin/assets/libs/datatables.net/js/jquery.dataTables.min.js')}}"></script>
-        <script src="{{asset('admin/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.j')}}s"></script>
-        
-        <!-- Responsive examples -->
-        <script src="{{asset('admin/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
-        <script src="{{asset('admin/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')}}"></script>
-
-        <script src="{{asset('admin/assets/js/pages/dashboard.init.js')}}"></script>
-
-        <!-- App js -->
-        <script src="{{asset('admin/assets/js/app.js')}}"></script>
+        @yield("js")
     </body>
 
 </html>
