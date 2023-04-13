@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Profile;
+use Intervention\Image\Facades\Image;
 
 class UserProfileController extends Controller
 {
@@ -25,7 +26,8 @@ class UserProfileController extends Controller
             $image = $request->file('image_url');
             $name = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
             $saveUrl = 'upload/profile/'.$name;
-            $image->move('upload/profile/',$name);
+            
+            Image::make($image)->resize(200,200)->save($saveUrl);
             
             Profile::findOrFail(1)->update([
                 'first_name' => $request->first_name,
@@ -38,8 +40,7 @@ class UserProfileController extends Controller
                 'last_name' => $request->last_name
             ]);
         }
-        // return view('admin.profile.edit');
-
+        
         return redirect()->back();
     }
 
