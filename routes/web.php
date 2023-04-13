@@ -17,6 +17,7 @@ use App\Http\Controllers\admin\UserProfileController;
 
 Route::controller(UserProfileController::class)->group(function(){
     Route::get('admin/profile/edit','edit')->name('admin.profile.edit');
+    Route::post('admin/profile/edit/store','editStore')->name('admin.profile.edit.store');
 });
 
 
