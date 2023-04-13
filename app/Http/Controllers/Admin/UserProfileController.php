@@ -9,6 +9,13 @@ use Intervention\Image\Facades\Image;
 
 class UserProfileController extends Controller
 {
+    public function profile(){
+        $profile = Profile::find(1);
+
+        return view('admin.profile.index',compact('profile'));
+    }
+
+
     public function edit(){
 
         $profile = Profile::find(1);
@@ -46,7 +53,7 @@ class UserProfileController extends Controller
             'alert-type'=>'success'
         );
 
-        return redirect()->back()->with($notification);
+        return redirect()->route('admin.profile')->with($notification);
     }
 
 }

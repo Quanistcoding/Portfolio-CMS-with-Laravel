@@ -1,3 +1,9 @@
+@php
+    $profile = App\Models\Profile::find(1);
+@endphp
+
+
+
 <!doctype html>
 <html lang="en">
 
@@ -75,7 +81,7 @@
                         <div class="dropdown d-inline-block user-dropdown">
                             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="rounded-circle header-profile-user" src="{{asset('admin/assets/images/users/avatar-1.jpg')}}"
+                                <img class="rounded-circle header-profile-user" src="{{asset($profile->image_url)}}"
                                     alt="Header Avatar">
                                 <span class="d-none d-xl-inline-block ms-1">Julia</span>
                                 <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
@@ -111,7 +117,7 @@
                     <!-- User details -->
                     <div class="user-profile text-center mt-3">
                         <div class="">
-                            <img src="{{asset('admin/assets/images/users/avatar-1.jpg')}}" alt="" class="avatar-md rounded-circle">
+                            <img src="{{asset($profile->image_url)}}" alt="" class="avatar-md rounded-circle">
                         </div>
                         <div class="mt-3">
                             <h4 class="font-size-16 mb-1">Julia Hudda</h4>
@@ -131,7 +137,7 @@
                                     <span>Profile</span>
                                 </a>
                                 <ul class="sub-menu">
-                                    <li><a href="auth-login.html">View Profile</a></li>
+                                    <li><a href="{{route('admin.profile')}}">View Profile</a></li>
                                     <li><a href="{{route('admin.profile.edit')}}">Edit Profile</a></li>
                                 </ul>
                             </li>
