@@ -25,7 +25,7 @@ Route::controller(UserProfileController::class)->middleware(['auth', 'verified']
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('landing');
 });
 
 Route::get('/dashboard', function () {

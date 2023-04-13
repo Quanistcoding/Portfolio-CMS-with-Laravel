@@ -83,7 +83,7 @@
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img class="rounded-circle header-profile-user" src="{{asset($profile->image_url)}}"
                                     alt="Header Avatar">
-                                <span class="d-none d-xl-inline-block ms-1">Julia</span>
+                                <span class="d-none d-xl-inline-block ms-1">{{$profile->last_name}}</span>
                                 <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                             </button>
                             <div class="dropdown-menu dropdown-menu-end">
@@ -127,6 +127,15 @@
 
                     <!--- Sidemenu -->
                     <div id="sidebar-menu">
+                        <ul class="metismenu list-unstyled" id="side-menu">                            
+                            <li>
+                                <a class="waves-effect" href="/">
+                                    <i class="ri-home-3-line"></i>
+                                    <span>Home</span>
+                                </a>
+                            </li>
+                        </ul>
+
                         <!-- Left Menu Start -->
                         <ul class="metismenu list-unstyled" id="side-menu">
                             <li class="menu-title">Menu</li>
