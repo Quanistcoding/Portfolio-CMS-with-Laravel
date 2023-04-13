@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\UserProfileController;
 use App\Http\Controllers\admin\AboutController;
+use App\Http\Controllers\ClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,8 @@ use App\Http\Controllers\admin\AboutController;
 |
 */
 
+
+//Admin
 Route::controller(UserProfileController::class)->middleware(['auth', 'verified'])->group(function(){
     Route::get('admin/profile/edit','edit')->name('admin.profile.edit');
     Route::post('admin/profile/edit/store','editStore')->name('admin.profile.edit.store');
@@ -25,12 +28,18 @@ Route::controller(UserProfileController::class)->middleware(['auth', 'verified']
 Route::controller(AboutController::class)->middleware(['auth', 'verified'])->group(function(){
     Route::get('admin/about','about')->name('admin.about');
     Route::post('admin/about/store','store')->name('admin.about.store');
-
 });
 
 
+//Client
+Route::controller(ClientController::class)->group(function(){
+    Route::get('client/about','detail')->name('client.about');
+});
+
+
+
 Route::get('/', function () {
-    return view('landing');
+    return view('client.landing.index');
 });
 
 Route::get('/dashboard', function () {

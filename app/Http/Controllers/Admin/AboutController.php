@@ -25,7 +25,7 @@ class AboutController extends Controller
             $name = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
             $saveUrl = 'upload/about/'.$name;
             
-            Image::make($image)->resize(200,200)->save($saveUrl);
+            Image::make($image)->resize(636,852)->save($saveUrl);
             
             About::findOrFail(1)->update([
                 'title'=>$request->title,
