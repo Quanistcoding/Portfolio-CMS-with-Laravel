@@ -41,7 +41,12 @@ class UserProfileController extends Controller
             ]);
         }
         
-        return redirect()->back();
+        $notification = array(
+            'message'=>'Profile Updated.',
+            'alert-type'=>'success'
+        );
+
+        return redirect()->back()->with($notification);
     }
 
 }
