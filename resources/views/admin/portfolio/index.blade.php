@@ -1,7 +1,7 @@
 @extends('admin._layout')
 @section('content')
     <div class="container-fluid">
-      <h3>Image Group</h3>  
+      <h3>Portfolios</h3>  
       <div class="table-responsive">
         <table class="table mb-0">
 
@@ -30,7 +30,7 @@
                   </td>
                   <td>
                     <a class = "btn btn-info" href = "{{route('admin.portfolio.edit',$portfolio->id)}}">Edit</a>
-                    <a class = "btn btn-danger" id = "delete" href = "{{route('admin.about.imageGroup.delete',$portfolio->id)}}">Delete</a>
+                    <a class = "btn btn-danger" id = "delete" href = "{{route('admin.portfolio.delete',$portfolio->id)}}">Delete</a>
                   </td>
               </tr>
                 @endforeach
@@ -70,4 +70,9 @@ $(document).ready(function(){
 });
 
 </script>
+
+
+<script src="{{ asset('admin/assets/libs/sweetalert2at10.js') }}"></script>
+
+ <script src="{{ asset('admin/assets/js/code.js') }}"></script>
 @endsection

@@ -49,7 +49,10 @@ Route::controller(PortfolioController::class)->middleware(['auth', 'verified'])-
     Route::post('admin/portfolio/add','portfolioAddStore')->name('admin.portfolio.add.store');  
     Route::get('admin/portfolio/edit/{id}','portfolioEdit')->name('admin.portfolio.edit');
     Route::post('admin/portfolio/edit','portfolioEditStore')->name('admin.portfolio.edit.store');
+    Route::get('admin/portfolio/delete/{id}','portfolioDelete')->name('admin.portfolio.delete');
 });
+
+
 
 
 //Client
