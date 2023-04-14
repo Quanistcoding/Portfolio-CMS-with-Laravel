@@ -10,7 +10,7 @@
         <div class="row align-items-center justify-content-center justify-content-lg-between">
             <div class="col-lg-6 order-0 order-lg-2">
                 <div class="banner__img text-center text-xxl-end">
-                    <img src="{{asset($about->image_url)}}" alt="">
+                    <img src="{{$about ? sset($about->image_url) : ''}}" alt="">
                 </div>
             </div>
             <div class="col-xl-5 col-lg-6">
@@ -26,7 +26,7 @@
         <a href="#aboutSection" class="scroll__link">Scroll down</a>
     </div>
     <div class="banner__video">
-        <a href="{{$about->video_url}}" class="popup-video"><i class="fas fa-play"></i></a>
+        <a href="{{$about ? $about->video_url : ''}}" class="popup-video"><i class="fas fa-play"></i></a>
    
 </section>
 <!-- banner-area-end -->
@@ -51,7 +51,7 @@
                 <div class="about__content">
                     <div class="section__title">
                         <span class="sub-title">01 - About me</span>
-                        <h2 class="title">{{$about->title}}</h2>
+                        <h2 class="title">{{$about ? $about->title : ''}}</h2>
                     </div>
                     <div class="about__exp">
                         <div class="about__exp__icon">
@@ -61,7 +61,7 @@
                             <p></p>
                         </div>
                     </div>
-                    <p class="desc">{{$about->sub_title}}</p>
+                    <p class="desc">{{$about ? $about->sub_title : ''}}</p>
                     <a href="about.html" class="btn">Download my resume</a>
                 </div>
             </div>

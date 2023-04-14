@@ -82,9 +82,9 @@
                         <div class="dropdown d-inline-block user-dropdown">
                             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="rounded-circle header-profile-user" src="{{asset($profile->image_url)}}"
+                                <img class="rounded-circle header-profile-user" src="{{asset($profile ? $profile->image_url : '')}}"
                                     alt="Header Avatar">
-                                <span class="d-none d-xl-inline-block ms-1">{{$profile->last_name}}</span>
+                                <span class="d-none d-xl-inline-block ms-1">{{$profile ? $profile->last_name : ''}}</span>
                                 <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                             </button>
                             <div class="dropdown-menu dropdown-menu-end">
@@ -118,10 +118,10 @@
                     <!-- User details -->
                     <div class="user-profile text-center mt-3">
                         <div class="">
-                            <img src="{{asset($profile->image_url)}}" alt="" class="avatar-md rounded-circle">
+                            <img src="{{asset($profile ? $profile->image_url : '')}}" alt="" class="avatar-md rounded-circle">
                         </div>
                         <div class="mt-3">
-                            <h4 class="font-size-16 mb-1">{{$profile->last_name}}</h4>
+                            <h4 class="font-size-16 mb-1">{{$profile ? $profile->last_name : ''}}</h4>
                             <span class="text-muted"><i class="ri-record-circle-line align-middle font-size-14 text-success"></i> Online</span>
                         </div>
                     </div>
