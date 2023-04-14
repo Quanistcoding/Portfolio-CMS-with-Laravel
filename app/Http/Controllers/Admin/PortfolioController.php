@@ -43,6 +43,8 @@ class PortfolioController extends Controller
             ]);
         }
 
+        PortfolioCategory::find($request->category)->increment('portfolio_count');
+
         $notification = array(
             'message'=>'Portfolio added.',
             'alert-type'=>'success'
@@ -58,6 +60,12 @@ class PortfolioController extends Controller
     }
 
     public function portfolioEditStore(Request $request){
+
+        $oldCategoryId = Portfolio::findOrFail($request->id)->category;
+        $oldCategory = PortfolioCategory::find($oldCategoryId);
+        if($oldCategory != null)
+             $oldCategory->decrement('portfolio_count');
+
         if($request->file('image_url')){
             $image = $request->file('image_url');
             $name = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
@@ -78,6 +86,9 @@ class PortfolioController extends Controller
                 'description'=>$request->description,
             ]);
         }
+
+        PortfolioCategory::find($request->category)->increment('portfolio_count');
+
         $notification = array(
             'message'=>'Portfolio Updated.',
             'alert-type'=>'success'
@@ -89,6 +100,8 @@ class PortfolioController extends Controller
     public function portfolioDelete($id){
         $portfolio = Portfolio::findOrFail($id);
         unlink($portfolio->image_url);
+
+        PortfolioCategory::find($portfolio->category)->decrement('portfolio_count');
 
         $portfolio->delete();
         $notification = array(
@@ -155,7 +168,6 @@ class PortfolioController extends Controller
             'alert-type'=>'success'
         );  
     
-        return view('admin/portfolio/category/add');
-        //return redirect()->route('admin.portfolio.category')->with($notification);
+        return redirect()->route('admin.portfolio.category')->with($notification);
     }
 }

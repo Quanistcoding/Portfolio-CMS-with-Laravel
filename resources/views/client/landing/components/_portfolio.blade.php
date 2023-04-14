@@ -21,10 +21,12 @@
                                     role="tab" aria-controls="all" aria-selected="true">All</button>
                             </li>
                         @foreach($categories as $category)
-                            <li class="nav-item" role="presentation">
-                                <button class="nav-link" id="id{{$category->id}}" data-bs-toggle="tab" data-bs-target="#targetId_{{$category->id}}" type="button"
-                                    role="tab" aria-controls="website" aria-selected="false">{{$category->name}}</button>
-                            </li>
+                            @if($category->portfolio_count > 0)
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="id{{$category->id}}" data-bs-toggle="tab" data-bs-target="#targetId_{{$category->id}}" type="button"
+                                        role="tab" aria-controls="website" aria-selected="false">{{$category->name}}</button>
+                                </li>
+                            @endif
                         @endforeach
                     </ul>
                 </div>

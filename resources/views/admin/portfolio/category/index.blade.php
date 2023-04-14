@@ -10,6 +10,7 @@
                 <tr>
                     <th>#</th>
                     <th>Category</th>
+                    <th>Portfolio Count</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -20,6 +21,9 @@
                   <th>{{$i++}}</th>
                   <td>
                     {{$category->name}}
+                  </td>
+                  <td>
+                    {{$category->portfolio_count}}
                   </td>
                   <td>
                     <a class = "btn btn-info" href = "{{route('admin.portfolio.category.edit',$category->id)}}">Edit</a>
