@@ -424,10 +424,6 @@
  <script src="{{asset('admin/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js')}}"></script>
  <script src="{{asset('admin/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js')}}"></script>
 
- <script src="{{asset('admin/assets/js/pages/dashboard.init.js')}}"></script> 
+ <script src="{{asset('admin/assets/js/pages/dashboard.init.js')}}"></script>  
  
- 
-  <!-- App js -->
-
- <script src="{{asset('admin/assets/js/app.js')}}"></script>
 @endsection

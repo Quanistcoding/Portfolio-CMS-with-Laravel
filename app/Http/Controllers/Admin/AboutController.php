@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\About;
+use App\Models\ImageGroup;
+use Illuminate\Support\Facades\Redis;
 use Intervention\Image\Facades\Image;
 
 class AboutController extends Controller
@@ -51,5 +53,42 @@ class AboutController extends Controller
         );
 
         return redirect()->back()->with($notification);
+    }
+
+    public function imageGroup(){
+        $images = ImageGroup::all();
+
+        return view('admin/about/imageGroup/index',compact('images'));
+    }
+    
+    public function imageGroupAdd(){
+        return view('admin/about/imageGroup/add');
+    }
+
+    public function imageGroupAddStore(Request $request){
+        $images = $request->file('image_url');
+        if($images == null){
+            $notification = array(
+                'message'=>'No image added.',
+                'alert-type'=>'info'
+            );  
+
+             return redirect()->route('admin.about.imageGroup')->with($notification);
+        }
+        foreach($images as $image){
+            $name = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+            $save_url = 'upload/about/imageGroup/'.$name;
+            Image::make($image)->resize(150,150)->save($save_url);
+            ImageGroup::insert([
+                'image_url'=> $save_url
+            ]);
+        };
+
+        $notification = array(
+            'message'=>'Images added.',
+            'alert-type'=>'success'
+        );  
+
+        return redirect()->route('admin.about.imageGroup')->with($notification);
     }
 }

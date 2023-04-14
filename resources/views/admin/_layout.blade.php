@@ -33,7 +33,7 @@
         <!-- App Css-->
         <link href="{{asset('admin/assets/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" type="text/css" href="{{asset('admin/assets/css/toastr.css')}}" >
-        <script src="{{asset('admin/assets/libs/jquery/jquery.min.js')}}"></script>
+        
         
     </head>
 
@@ -127,7 +127,7 @@
 
                     <!--- Sidemenu -->
                     <div id="sidebar-menu">
-                        <ul class="metismenu list-unstyled" id="side-menu">                            
+                        <ul class="metismenu list-unstyled">                            
                             <li>
                                 <a class="waves-effect" href="/">
                                     <i class="ri-home-3-line"></i>
@@ -145,18 +145,31 @@
                                     <i class="ri-account-circle-line"></i>
                                     <span>Profile</span>
                                 </a>
-                                <ul class="sub-menu">
+                                <ul class="sub-menu" aria-expanded = "false">
                                     <li><a href="{{route('admin.profile')}}">View Profile</a></li>
                                     <li><a href="{{route('admin.profile.edit')}}">Edit Profile</a></li>
                                 </ul>
                             </li>
 
                             <li>
-                                <a href="{{route('admin.about')}}" class="waves-effect">
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
                                     <i class="ri-user-fill"></i>
                                     <span>About</span>
                                 </a>
+                                <ul class="sub-menu" aria-expanded = "false">
+                                    <li><a href="{{route('admin.about')}}">Edit</a></li>
+                                    <li>
+                                        <a href="javascript: void(0);" class="has-arrow">Image Group</a>
+                                        <ul class="sub-menu" aria-expanded="true">
+                                            <li><a href="{{route('admin.about.imageGroup')}}">List</a></li>
+                                            <li><a href="{{route('admin.about.imageGroup.add')}}">Add</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                
                             </li>
+
+                            
                         </ul>
                     </div>
                     <!-- Sidebar -->
@@ -197,10 +210,13 @@
             <!-- end main content-->
 
         </div>
+        <script src="{{asset('admin/assets/libs/jquery/jquery.min.js')}}"></script>
         <!-- END layout-wrapper -->
-
-  
-        <script type="text/javascript" src="{{asset('/admin/assets/libs/toastr.min.js')}}"></script>
+        
+          @yield("js")
+          
+          <script src="{{asset('admin/assets/js/app.js')}}"></script>
+          <script type="text/javascript" src="{{asset('/admin/assets/libs/toastr.min.js')}}"></script>
          @if(Session::has('message')) 
             <script>           
                 var type = "{{ Session::get('alert-type','info') }}"
@@ -223,7 +239,6 @@
                 }            
            </script>
           @endif 
-        @yield("js")
     </body>
 
 </html>

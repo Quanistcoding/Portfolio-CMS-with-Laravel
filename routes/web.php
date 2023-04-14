@@ -29,6 +29,11 @@ Route::controller(UserProfileController::class)->middleware(['auth', 'verified']
 Route::controller(AboutController::class)->middleware(['auth', 'verified'])->group(function(){
     Route::get('admin/about','about')->name('admin.about');
     Route::post('admin/about/store','store')->name('admin.about.store');
+    Route::get('admin/about/imageGroup','imageGroup')->name('admin.about.imageGroup');
+    Route::get('admin/about/imageGroup/add','imageGroupAdd')->name('admin.about.imageGroup.add');
+    Route::post('admin/about/imageGroup/add','imageGroupAddStore')->name('admin.about.imageGroup.add.store');
+
+    
 });
 
 Route::controller(AuthController::class)->middleware(['auth', 'verified'])->group(function(){
