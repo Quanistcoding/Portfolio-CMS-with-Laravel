@@ -140,4 +140,15 @@ class PortfolioController extends Controller
         );  
         return redirect()->route('admin.portfolio.category')->with($notification);
     }
+
+    public function portfolioCategoryDelete($id){
+        PortfolioCategory::findOrFail($id)->delete();
+
+        $notification = array(
+            'message'=>'Portfolio category deleted.',
+            'alert-type'=>'success'
+        );  
+    
+        return redirect()->route('admin.portfolio.category')->with($notification);
+    }
 }

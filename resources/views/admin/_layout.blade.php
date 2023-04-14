@@ -33,8 +33,9 @@
         <!-- App Css-->
         <link href="{{asset('admin/assets/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" type="text/css" href="{{asset('admin/assets/css/toastr.css')}}" >
-        
-        
+        <script src="{{asset('admin/assets/libs/jquery/jquery.min.js')}}"></script>
+        <script src="{{ asset('admin/assets/libs/sweetalert2at10.js') }}"></script>
+        <script src="{{ asset('admin/assets/js/code.js') }}"></script>
     </head>
 
     <body data-topbar="dark">
@@ -227,7 +228,7 @@
             <!-- end main content-->
 
         </div>
-        <script src="{{asset('admin/assets/libs/jquery/jquery.min.js')}}"></script>
+        
         <!-- END layout-wrapper -->
         
           @yield("js")
