@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\UserProfileController;
 use App\Http\Controllers\admin\AboutController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\Admin\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,13 @@ Route::controller(AboutController::class)->middleware(['auth', 'verified'])->gro
     Route::get('admin/about','about')->name('admin.about');
     Route::post('admin/about/store','store')->name('admin.about.store');
 });
+
+Route::controller(AuthController::class)->middleware(['auth', 'verified'])->group(function(){
+    Route::get('admin/changePassword','changePassword')->name('admin.changePassword');
+    Route::post('admin/changePassword/store','changePasswordStore')->name('admin.changePassword.store');
+});
+
+
 
 
 //Client
