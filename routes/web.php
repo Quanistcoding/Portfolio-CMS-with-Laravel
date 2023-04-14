@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\UserProfileController;
 use App\Http\Controllers\admin\AboutController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\Admin\AuthController;
+use App\Http\Controllers\Admin\PortfolioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,7 +42,12 @@ Route::controller(AuthController::class)->middleware(['auth', 'verified'])->grou
     Route::post('admin/changePassword/store','changePasswordStore')->name('admin.changePassword.store');
 });
 
+Route::controller(PortfolioController::class)->middleware(['auth', 'verified'])->group(function(){
+    Route::get('admin/portfolio','portfolio')->name('admin.portfolio');
+    Route::get('admin/portfolio/add','portfolioAdd')->name('admin.portfolio.add');
+    Route::post('admin/portfolio/add','portfolioAddStore')->name('admin.portfolio.add.store');
 
+});
 
 
 //Client
