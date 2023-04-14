@@ -11,6 +11,7 @@
                     <th>Title</th>
                     <th>Subtitle</th>
                     <th>Category</th>
+                    <th>Image</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -27,6 +28,9 @@
                   </td>
                   <td>
                     {{$portfolio->category}}
+                  </td>
+                  <td>
+                    <img src = "{{asset($portfolio->image_url)}}" style = "width:120px" />
                   </td>
                   <td>
                     <a class = "btn btn-info" href = "{{route('admin.portfolio.edit',$portfolio->id)}}">Edit</a>

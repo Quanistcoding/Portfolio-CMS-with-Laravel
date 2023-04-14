@@ -25,12 +25,20 @@
               <input class="form-control" type="text" id="category" name = "category">
           </div>
         </div>    
-
-       
-          <label for="imageUrl" class="col-sm-2 col-form-label">Description</label>
-          <textarea id="elm1" name="description"></textarea>
-         
-       
+        <div class="row mb-3">
+          <label for="imageUrl" class="col-sm-2 col-form-label">Add Image</label>
+          <div class="col-sm-10">
+              <input class="form-control" type="file" id="imageUrl" name = "image_url">
+          </div>
+        </div>
+        <div class="row mb-3">      
+          <label for="firstName" class="col-sm-2 col-form-label"></label>      
+          <div class="col-sm-10">
+              <img  id = "imageDisplay" style = "width:120px"/>
+          </div>
+        </div>
+        <label for="imageUrl" class="col-sm-2 col-form-label">Description</label>
+        <textarea id="elm1" name="description"></textarea>
       <button class = "btn btn-primary btn-rounded waves-effect waves-light">Save</button>
     </form>
       </form>
@@ -56,23 +64,12 @@
 <script>
 $(document).ready(function(){
   $("#imageUrl").change(function(event){
-      var files = event.target.files;
-      
-      files.forEach(element => {
-         var fileReader = new FileReader();
-          fileReader.onload = function(event){
-
-            $(imageDisplay).append(`
-              <div class = "m-2 d-inline-block">
-                <img src = "${event.target.result}" style = "width:120px">
-              </div>
-            `); 
-          }
-         fileReader.readAsDataURL(element);
-      });
-   
+    var fileReader = new FileReader();
+    fileReader.onload = function(event){
+      $(imageDisplay).attr("src",event.target.result);
+    }
+    fileReader.readAsDataURL(event.target.files[0]);
   })
 });
-
 </script>
 @endsection
