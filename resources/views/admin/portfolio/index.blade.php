@@ -8,7 +8,9 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Image</th>
+                    <th>Title</th>
+                    <th>Subtitle</th>
+                    <th>Category</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -19,9 +21,16 @@
                   <th>{{$i++}}</th>
                   <td>
                     {{$portfolio->title}}
+                  </td>
                   <td>
-                    <a class = "btn btn-info">Edit</a>
-                    <a class = "btn btn-danger">Delete</a>
+                    {{$portfolio->sub_title}}
+                  </td>
+                  <td>
+                    {{$portfolio->category}}
+                  </td>
+                  <td>
+                    <a class = "btn btn-info" href = "{{route('admin.portfolio.edit',$portfolio->id)}}">Edit</a>
+                    <a class = "btn btn-danger" id = "delete" href = "{{route('admin.about.imageGroup.delete',$portfolio->id)}}">Delete</a>
                   </td>
               </tr>
                 @endforeach

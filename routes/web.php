@@ -46,8 +46,9 @@ Route::controller(AuthController::class)->middleware(['auth', 'verified'])->grou
 Route::controller(PortfolioController::class)->middleware(['auth', 'verified'])->group(function(){
     Route::get('admin/portfolio','portfolio')->name('admin.portfolio');
     Route::get('admin/portfolio/add','portfolioAdd')->name('admin.portfolio.add');
-    Route::post('admin/portfolio/add','portfolioAddStore')->name('admin.portfolio.add.store');
-
+    Route::post('admin/portfolio/add','portfolioAddStore')->name('admin.portfolio.add.store');  
+    Route::get('admin/portfolio/edit/{id}','portfolioEdit')->name('admin.portfolio.edit');
+    Route::post('admin/portfolio/edit','portfolioEditStore')->name('admin.portfolio.edit.store');
 });
 
 
