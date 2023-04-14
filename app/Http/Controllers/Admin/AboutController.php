@@ -115,4 +115,15 @@ class AboutController extends Controller
 
     return redirect()->route('admin.about.imageGroup')->with($notification);
     }
+
+    public function imageGroupDelete($id){
+        ImageGroup::findOrFail($id)->delete();
+
+        $notification = array(
+            'message'=>'Images deleted.',
+            'alert-type'=>'success'
+        );  
+    
+        return redirect()->route('admin.about.imageGroup')->with($notification);
+    }
 }

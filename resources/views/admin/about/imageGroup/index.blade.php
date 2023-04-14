@@ -21,7 +21,7 @@
                     <img src = "{{asset($image->image_url)}}" style = "width:100px">
                   <td>
                     <a class = "btn btn-info" href = "{{route('admin.about.imageGroup.edit',$image->id)}}">Edit</a>
-                    <a class = "btn btn-danger">Delete</a>
+                    <a class = "btn btn-danger" id = "delete" href = "{{route('admin.about.imageGroup.delete',$image->id)}}">Delete</a>
                   </td>
               </tr>
                 @endforeach
@@ -61,4 +61,10 @@ $(document).ready(function(){
 });
 
 </script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+ <script src="{{ asset('admin/assets/js/code.js') }}"></script>
+
 @endsection

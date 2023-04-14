@@ -33,8 +33,9 @@ Route::controller(AboutController::class)->middleware(['auth', 'verified'])->gro
     Route::get('admin/about/imageGroup','imageGroup')->name('admin.about.imageGroup');
     Route::get('admin/about/imageGroup/add','imageGroupAdd')->name('admin.about.imageGroup.add');
     Route::post('admin/about/imageGroup/add','imageGroupAddStore')->name('admin.about.imageGroup.add.store');
-    Route::get('admin/about/imageGroup/add/{id}','imageGroupEdit')->name('admin.about.imageGroup.edit');
+    Route::get('admin/about/imageGroup/edit/{id}','imageGroupEdit')->name('admin.about.imageGroup.edit');
     Route::post('admin/about/imageGroup/edit','imageGroupEditStore')->name('admin.about.imageGroup.edit.store');
+    Route::get('admin/about/imageGroup/delete/{id}','imageGroupDelete')->name('admin.about.imageGroup.delete');
   });
 
 Route::controller(AuthController::class)->middleware(['auth', 'verified'])->group(function(){
