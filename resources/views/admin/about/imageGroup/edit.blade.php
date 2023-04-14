@@ -1,35 +1,26 @@
 @extends('admin._layout')
 @section('content')
     <div class="container-fluid">
-      <h3>Image Group</h3>  
-      <div class="table-responsive">
-        <table class="table mb-0">
-
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Image</th>
-                    <th>Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                @php($i = 1)
-                @foreach($images as $image)
-                <tr style = "vertical-align: middle">
-                  <th>{{$i++}}</th>
-                  <td>
-                    <img src = "{{asset($image->image_url)}}" style = "width:100px">
-                  <td>
-                    <a class = "btn btn-info" href = "{{route('admin.about.imageGroup.edit',$image->id)}}">Edit</a>
-                    <a class = "btn btn-danger">Delete</a>
-                  </td>
-              </tr>
-                @endforeach
-
-               
-            </tbody>
-        </table>
-    </div>
+      <h3>Edit Image for Image Group</h3>  
+      <form action = "{{route('admin.about.imageGroup.edit.store')}}" method = "post" enctype="multipart/form-data">    
+          @csrf
+          <input value = "{{$image->id}}" name = "id" hidden> 
+          <div class="row mb-3">
+            <label for="imageUrl" class="col-sm-2 col-form-label">Edit Image</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="file" id="imageUrl" name = "image_url" multiple>
+            </div>
+          </div>
+          <div class="row mb-3">      
+            <label for="firstName" class="col-sm-2 col-form-label"></label>      
+            <div class="col-sm-10">
+                <img id = "imageDisplay" style = "width:120px" src = "{{asset($image->image_url)}}"/>
+            </div>
+          </div>
+                     
+         
+        <button class = "btn btn-primary btn-rounded waves-effect waves-light">Save</button>
+      </form>
     </div>                     
 @endsection
 
@@ -54,7 +45,7 @@ $(document).ready(function(){
   $("#imageUrl").change(function(event){
     var fileReader = new FileReader();
     fileReader.onload = function(event){
-      $(imageDisplay).attr("src",event.target.result);
+    $(imageDisplay).attr('src',event.target.result); 
     }
     fileReader.readAsDataURL(event.target.files[0]);
   })

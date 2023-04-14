@@ -14,7 +14,6 @@
           <div class="row mb-3">      
             <label for="firstName" class="col-sm-2 col-form-label"></label>      
             <div class="col-sm-10" id = "imageDisplay">
-                {{-- <img id = "imageDisplay" style = "width:120px"/> --}}
             </div>
           </div>
                      

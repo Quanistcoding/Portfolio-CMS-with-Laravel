@@ -120,7 +120,7 @@
                             <img src="{{asset($profile->image_url)}}" alt="" class="avatar-md rounded-circle">
                         </div>
                         <div class="mt-3">
-                            <h4 class="font-size-16 mb-1">Julia Hudda</h4>
+                            <h4 class="font-size-16 mb-1">{{$profile->last_name}}</h4>
                             <span class="text-muted"><i class="ri-record-circle-line align-middle font-size-14 text-success"></i> Online</span>
                         </div>
                     </div>
