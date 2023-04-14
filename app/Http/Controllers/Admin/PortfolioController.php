@@ -119,4 +119,25 @@ class PortfolioController extends Controller
         );  
         return redirect()->route('admin.portfolio.category')->with($notification);
     }
+
+    public function portfolioCategoryEdit($id){
+        $portfolioCategory = PortfolioCategory::find($id);
+        return view('admin/portfolio/category/edit',compact('portfolioCategory'));
+    }
+
+    public function portfolioCategoryEditStore(Request $request){
+        $request->validate([
+            'name'=>'required'
+        ]);
+
+        PortfolioCategory::findOrFail($request->id)->update([
+            'name'=>$request->name
+        ]);
+
+        $notification = array(
+            'message'=>'Portfolio Category Updated.',
+            'alert-type'=>'success'
+        );  
+        return redirect()->route('admin.portfolio.category')->with($notification);
+    }
 }

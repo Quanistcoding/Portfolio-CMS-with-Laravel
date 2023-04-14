@@ -21,7 +21,7 @@
                     {{$category->name}}
                   </td>
                   <td>
-                    <a class = "btn btn-info" href = "{{route('admin.portfolio.edit',$category->id)}}">Edit</a>
+                    <a class = "btn btn-info" href = "{{route('admin.portfolio.category.edit',$category->id)}}">Edit</a>
                     <a class = "btn btn-danger" id = "delete" href = "{{route('admin.portfolio.delete',$category->id)}}">Delete</a>
                   </td>
               </tr>

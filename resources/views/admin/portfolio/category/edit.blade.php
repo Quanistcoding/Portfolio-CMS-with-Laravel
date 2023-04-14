@@ -2,13 +2,13 @@
 @section('content')
     <div class="container-fluid">
       <h3>Add Portfolio Category</h3>  
-      <form action = "{{route('admin.portfolio.category.add.store')}}" method = "post">    
+      <form action = "{{route('admin.portfolio.category.edit.store')}}" method = "post">    
         @csrf
-      
+        <input hidden value = "{{$portfolioCategory->id}}" name = "id">
         <div class="row mb-3">
           <label for="category" class="col-sm-2 col-form-label">Category</label>
           <div class="col-sm-10">
-              <input class="form-control" type="text" id="category" name = "name">
+              <input class="form-control" type="text" id="category" name = "name" value = "{{$portfolioCategory->name}}">
               @error('name')
               <div class="alert alert-danger alert-dismissible fade show mt-1" role="alert">
                 {{$message}}
