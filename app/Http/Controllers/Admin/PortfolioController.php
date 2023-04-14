@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Portfolio;
+use App\Models\PortfolioCategory;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
@@ -92,5 +93,30 @@ class PortfolioController extends Controller
         );  
     
         return redirect()->route('admin.portfolio')->with($notification);
+    }
+
+    public function portfolioCategory(){
+        $portfolioCategories = PortfolioCategory::all();
+        return view('admin/portfolio/category/index',compact('portfolioCategories'));
+    }
+
+    public function portfolioCategoryAdd(){
+        return view('admin/portfolio/category/add');
+    }
+
+    public function portfolioCategoryAddStore(Request $request){
+        $request->validate([
+            'name'=>'required'
+        ]);
+
+        PortfolioCategory::insert([
+            'name'=>$request->name
+        ]);
+
+        $notification = array(
+            'message'=>'Portfolio Category Added.',
+            'alert-type'=>'success'
+        );  
+        return redirect()->route('admin.portfolio.category')->with($notification);
     }
 }

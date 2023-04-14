@@ -50,6 +50,11 @@ Route::controller(PortfolioController::class)->middleware(['auth', 'verified'])-
     Route::get('admin/portfolio/edit/{id}','portfolioEdit')->name('admin.portfolio.edit');
     Route::post('admin/portfolio/edit','portfolioEditStore')->name('admin.portfolio.edit.store');
     Route::get('admin/portfolio/delete/{id}','portfolioDelete')->name('admin.portfolio.delete');
+    Route::get('admin/portfolio/category','portfolioCategory')->name('admin.portfolio.category');
+    Route::get('admin/portfolio/category/add','portfolioCategoryAdd')->name('admin.portfolio.category.add');
+    Route::post('admin/portfolio/category/add','portfolioCategoryAddStore')->name('admin.portfolio.category.add.store');
+
+   
 });
 
 
