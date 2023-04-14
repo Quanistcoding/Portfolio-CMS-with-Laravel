@@ -87,8 +87,10 @@ class PortfolioController extends Controller
     }
 
     public function portfolioDelete($id){
-        Portfolio::findOrFail($id)->delete();
+        $portfolio = Portfolio::findOrFail($id);
+        unlink($portfolio->image_url);
 
+        $portfolio->delete();
         $notification = array(
             'message'=>'Portfolio deleted.',
             'alert-type'=>'success'
@@ -144,13 +146,16 @@ class PortfolioController extends Controller
     }
 
     public function portfolioCategoryDelete($id){
-        PortfolioCategory::findOrFail($id)->delete();
+        $portfolioCategory = PortfolioCategory::find($id);
+
+        $portfolioCategory->delete();
 
         $notification = array(
             'message'=>'Portfolio category deleted.',
             'alert-type'=>'success'
         );  
     
-        return redirect()->route('admin.portfolio.category')->with($notification);
+        return view('admin/portfolio/category/add');
+        //return redirect()->route('admin.portfolio.category')->with($notification);
     }
 }
