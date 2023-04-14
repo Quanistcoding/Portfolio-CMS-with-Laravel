@@ -17,14 +17,19 @@
           <div class="col-sm-10">
               <input class="form-control" type="text" id="sub_title" name = "sub_title">
           </div>
-        </div>
+        </div>  
 
         <div class="row mb-3">
           <label for="category" class="col-sm-2 col-form-label">Category</label>
           <div class="col-sm-10">
-              <input class="form-control" type="text" id="category" name = "category">
+              <select class="form-select" aria-label="Default select example" name = "category" id="category">
+                  @foreach ($portfolioCategories as $portfolioCategory)
+                  <option value="{{$portfolioCategory->id}}">{{$portfolioCategory->name}}</option>
+                  @endforeach
+                  </select>
           </div>
-        </div>    
+      </div>
+
         <div class="row mb-3">
           <label for="imageUrl" class="col-sm-2 col-form-label">Add Image</label>
           <div class="col-sm-10">

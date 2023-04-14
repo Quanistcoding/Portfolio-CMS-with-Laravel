@@ -27,7 +27,7 @@
                     {{$portfolio->sub_title}}
                   </td>
                   <td>
-                    {{$portfolio->category}}
+                    {{$portfolio->categoryName->name}}
                   </td>
                   <td>
                     <img src = "{{asset($portfolio->image_url)}}" style = "width:120px" />

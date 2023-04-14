@@ -23,11 +23,11 @@
                 <input class="form-control" type="text" value="{{$profile->last_name}}" id="lastName" name = "last_name">
             </div>
             @error('last_name')
-            <label class="col-sm-2"></label>
-            <div class="col-sm-10 mt-1 px-2">
-               <div class="alert alert-danger">{{$message}}</div>                          
-           </div>
-         @enderror
+              <label class="col-sm-2"></label>
+              <div class="col-sm-10 mt-1 px-2">
+                <div class="alert alert-danger">{{$message}}</div>                          
+            </div>
+           @enderror
           </div>
           <div class="row mb-3">
             <label for="imageUrl" class="col-sm-2 col-form-label">Edit Image</label>

@@ -17,7 +17,8 @@ class PortfolioController extends Controller
 
 
     public function portfolioAdd(){
-        return view('admin/portfolio/add');
+        $portfolioCategories = PortfolioCategory::all();
+        return view('admin/portfolio/add',compact('portfolioCategories'));
     }
 
     public function portfolioAddStore(Request $request){
@@ -52,7 +53,8 @@ class PortfolioController extends Controller
 
     public function portfolioEdit($id){
         $portfolio = Portfolio::find($id);
-        return view('admin/portfolio/edit',compact('portfolio'));
+        $portfolioCategories = PortfolioCategory::all();
+        return view('admin/portfolio/edit',compact('portfolio','portfolioCategories'));
     }
 
     public function portfolioEditStore(Request $request){
