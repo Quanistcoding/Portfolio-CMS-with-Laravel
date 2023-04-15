@@ -4,11 +4,11 @@
         <div class="card-group">
             <div class="card mb-4 text-center">
                 <div>
-                 <img class="rounded-circle avatar-xl" src="{{asset($profile->image_url)}}" alt="Card image cap">
+                 <img class="rounded-circle avatar-xl" src="{{asset($profile ? $profile->image_url : '')}}" alt="Card image cap">
                 </div>
                 <div class="card-body">                    
-                    <p class="card-text"><b>Last Name: </b>{{$profile->last_name}}</p>
-                    <p class="card-text"><b>First Name: </b>{{$profile->first_name}}</p>
+                    <p class="card-text"><b>Last Name: </b>{{$profile ? $profile->last_name : ''}}</p>
+                    <p class="card-text"><b>First Name: </b>{{$profile ? $profile->first_name : ''}}</p>
                 </div>
             </div>
             <div class="card mb-4">
