@@ -71,7 +71,7 @@ Route::controller(BlogController::class)->middleware(['auth', 'verified'])->grou
     Route::post('admin/blog/category/add','blogCategoryAddStore')->name('admin.blog.category.add.store');
     Route::get('admin/blog/category/edit/{id}','blogCategoryEdit')->name('admin.blog.category.edit');
     Route::post('admin/blog/category/edit','blogCategoryEditStore')->name('admin.blog.category.edit.store');
-    // Route::get('admin/portfolio/category/delete/{id}','portfolioCategoryDelete')->name('admin.portfolio.category.delete');
+    Route::get('admin/blog/category/delete/{id}','blogCategoryDelete')->name('admin.blog.category.delete');
 });
 
 //Client

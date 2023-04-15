@@ -23,7 +23,7 @@
                   </td>
                   <td>
                     <a class = "btn btn-info" href = "{{route('admin.blog.category.edit',$category->id)}}">Edit</a>
-                    <a class = "btn btn-danger delete" id = "delete" href = "{{route('admin.portfolio.category.delete',$category->id)}}">Delete</a>
+                    <a class = "btn btn-danger delete" id = "delete" href = "{{route('admin.blog.category.delete',$category->id)}}">Delete</a>
                   </td>
               </tr>
                 @endforeach
