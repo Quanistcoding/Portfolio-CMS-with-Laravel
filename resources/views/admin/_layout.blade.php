@@ -187,7 +187,24 @@
                                     </li>
                                 </ul>
                             </li>
-                            
+
+                            <li>
+                                <a href="javascript: void(0);" class="has-arrow waves-effect">
+                                    <i class="ri-account-circle-line"></i>
+                                    <span>Blog</span>
+                                </a>
+                                <ul class="sub-menu" aria-expanded = "false">
+                                    <li><a href="{{route('admin.portfolio')}}">List</a></li>
+                                    <li><a href="{{route('admin.portfolio.add')}}">Add</a></li>
+                                    <li>
+                                        <a href="javascript: void(0);" class="has-arrow">Category</a>
+                                        <ul class="sub-menu" aria-expanded="true">
+                                            <li><a href="{{route('admin.portfolio.category')}}">List</a></li>
+                                            <li><a href="{{route('admin.blog.category.add')}}">Add</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                     <!-- Sidebar -->

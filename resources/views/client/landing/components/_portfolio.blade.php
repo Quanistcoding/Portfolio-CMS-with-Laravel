@@ -45,8 +45,8 @@
                                         </div>
                                         <div class="portfolio__overlay__content">
                                             <span>{{$portfolio->category}}</span>
-                                            <h4 class="title"><a href="portfolio-details.html">{{$portfolio->title}}</a></h4>
-                                            <a href="portfolio-details.html" class="link">Case Study</a>
+                                            <h4 class="title"><a href="{{route('client.portfolio.detail',$portfolio->id)}}">{{$portfolio->title}}</a></h4>
+                                            <a href="{{route('client.portfolio.detail',$portfolio->id)}}" class="link">Case Study</a>
                                         </div>
                                     </div>
                                 @endforeach
@@ -71,8 +71,8 @@
                                             </div>
                                             <div class="portfolio__overlay__content">
                                                 <span>{{$portfolio->category}}</span>
-                                                <h4 class="title"><a href="portfolio-details.html">{{$portfolio->title}}</a></h4>
-                                                <a href="portfolio-details.html" class="link">Case Study</a>
+                                                <h4 class="title"><a href="{{route('client.portfolio.detail',$portfolio->id)}}">{{$portfolio->title}}</a></h4>
+                                                <a href="{{route('client.portfolio.detail',$portfolio->id)}}" class="link">Case Study</a>
                                             </div>
                                         </div>
                                         @endif                                       

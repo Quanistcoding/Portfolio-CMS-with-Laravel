@@ -7,7 +7,6 @@ use App\Models\Portfolio;
 use App\Models\PortfolioCategory;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
-
 class PortfolioController extends Controller
 {
     public function portfolio(){

@@ -7,6 +7,7 @@ use App\Http\Controllers\admin\AboutController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\PortfolioController;
+use App\Http\Controllers\Admin\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,12 +59,26 @@ Route::controller(PortfolioController::class)->middleware(['auth', 'verified'])-
     Route::get('admin/portfolio/category/delete/{id}','portfolioCategoryDelete')->name('admin.portfolio.category.delete');
 });
 
+Route::controller(BlogController::class)->middleware(['auth', 'verified'])->group(function(){
+    // Route::get('admin/portfolio','portfolio')->name('admin.portfolio');
+    // Route::get('admin/portfolio/add','portfolioAdd')->name('admin.portfolio.add');
+    // Route::post('admin/portfolio/add','portfolioAddStore')->name('admin.portfolio.add.store');  
+    // Route::get('admin/portfolio/edit/{id}','portfolioEdit')->name('admin.portfolio.edit');
+    // Route::post('admin/portfolio/edit','portfolioEditStore')->name('admin.portfolio.edit.store');
+    // Route::get('admin/portfolio/delete/{id}','portfolioDelete')->name('admin.portfolio.delete');
+    // Route::get('admin/portfolio/category','portfolioCategory')->name('admin.portfolio.category');
+    Route::get('admin/blog/category/add','blogCategoryAdd')->name('admin.blog.category.add');
+    Route::post('admin/blog/category/add','blogCategoryAddStore')->name('admin.blog.category.add.store');
+    // Route::get('admin/portfolio/category/edit/{id}','portfolioCategoryEdit')->name('admin.portfolio.category.edit');
+    // Route::post('admin/portfolio/category/edit','portfolioCategoryEditStore')->name('admin.portfolio.category.edit.store');
+    // Route::get('admin/portfolio/category/delete/{id}','portfolioCategoryDelete')->name('admin.portfolio.category.delete');
+});
 
 //Client
 Route::controller(ClientController::class)->group(function(){
-    Route::get('client/about','detail')->name('client.about');
+    Route::get('client/about','aboutDetail')->name('client.about');
+    Route::get('client/portfolio/{id}','portfolioDetail')->name('client.portfolio.detail');
 });
-
 
 
 Route::get('/', function () {
