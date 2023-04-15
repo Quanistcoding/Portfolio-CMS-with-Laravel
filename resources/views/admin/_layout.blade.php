@@ -199,7 +199,7 @@
                                     <li>
                                         <a href="javascript: void(0);" class="has-arrow">Category</a>
                                         <ul class="sub-menu" aria-expanded="true">
-                                            <li><a href="{{route('admin.portfolio.category')}}">List</a></li>
+                                            <li><a href="{{route('admin.blog.category')}}">List</a></li>
                                             <li><a href="{{route('admin.blog.category.add')}}">Add</a></li>
                                         </ul>
                                     </li>

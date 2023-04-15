@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
+    public function blogCategory(){
+        $blogCategories = BlogCategory::all();
+        return view('admin/blog/category/index',compact('blogCategories'));
+    }
+
     public function blogCategoryAdd(){
         return view('admin/blog/category/add');
     }

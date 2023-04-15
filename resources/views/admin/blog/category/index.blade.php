@@ -2,7 +2,7 @@
 @section('content')
 
     <div class="container-fluid">
-      <h3>Portfolio Categories</h3>  
+      <h3>Blog Categories</h3>  
       <div class="table-responsive">
         <table class="table mb-0">
 
@@ -10,20 +10,16 @@
                 <tr>
                     <th>#</th>
                     <th>Category</th>
-                    <th>Portfolio Count</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
                 @php($i = 1)
-                @foreach($portfolioCategories as $category)
+                @foreach($blogCategories as $category)
                 <tr style = "vertical-align: middle">
                   <th>{{$i++}}</th>
                   <td>
                     {{$category->name}}
-                  </td>
-                  <td>
-                    {{$category->portfolio_count}}
                   </td>
                   <td>
                     <a class = "btn btn-info" href = "{{route('admin.portfolio.category.edit',$category->id)}}">Edit</a>
