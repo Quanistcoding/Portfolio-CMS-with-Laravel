@@ -1,14 +1,14 @@
 @extends('admin._layout')
 @section('content')
     <div class="container-fluid">
-      <h3>Add Portfolio Category</h3>  
-      <form action = "{{route('admin.portfolio.category.edit.store')}}" method = "post">    
+      <h3>Edit Blog Category</h3>  
+      <form action = "{{route('admin.blog.category.edit.store')}}" method = "post">    
         @csrf
-        <input hidden value = "{{$portfolioCategory->id}}" name = "id">
+        <input hidden value = "{{$blogCategory->id}}" name = "id">
         <div class="row mb-3">
           <label for="category" class="col-sm-2 col-form-label">Category</label>
           <div class="col-sm-10">
-              <input class="form-control" type="text" id="category" name = "name" value = "{{$portfolioCategory->name}}">
+              <input class="form-control" type="text" id="category" name = "name" value = "{{$blogCategory->name}}">
               @error('name')
               <div class="alert alert-danger alert-dismissible fade show mt-1" role="alert">
                 {{$message}}

@@ -27,9 +27,30 @@ class BlogController extends Controller
         ]);
 
         $notification = array(
-            'message'=>'Portfolio Category Added.',
+            'message'=>'Blog Category Added.',
             'alert-type'=>'success'
         );  
-        return redirect()->back()->with($notification);
+        return redirect()->route("admin.blog.category")->with($notification);
+    }
+
+    public function blogCategoryEdit($id){
+        $blogCategory = blogCategory::find($id);
+        return view('admin/blog/category/edit',compact('blogCategory'));
+    }
+
+    public function blogCategoryEditStore(Request $request){
+        $request->validate([
+            'name'=>'required'
+        ]);
+
+        blogCategory::findOrFail($request->id)->update([
+            'name'=>$request->name
+        ]);
+
+        $notification = array(
+            'message'=>'Blog Category Updated.',
+            'alert-type'=>'success'
+        );  
+        return redirect()->route('admin.blog.category')->with($notification);
     }
 }

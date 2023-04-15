@@ -1,7 +1,7 @@
 @extends('admin._layout')
 @section('content')
     <div class="container-fluid">
-      <h3>Add Portfolio Category</h3>  
+      <h3>Edit Portfolio Category</h3>  
       <form action = "{{route('admin.portfolio.category.edit.store')}}" method = "post">    
         @csrf
         <input hidden value = "{{$portfolioCategory->id}}" name = "id">
