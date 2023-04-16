@@ -18,7 +18,7 @@
         <div class="row mb-3">
           <label for="tags" class="col-sm-2 col-form-label">Tags</label>
           <div class="col-sm-10">
-              <input class="form-control" type="text" id="tags" name = "tags">
+              <input class="form-control" type="text" id="tags" name = "tags" data-role="tagsinput">
           </div>
         </div>  
 

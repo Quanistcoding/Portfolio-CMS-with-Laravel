@@ -33,9 +33,20 @@
         <!-- App Css-->
         <link href="{{asset('admin/assets/css/app.min.css')}}" id="app-style" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" type="text/css" href="{{asset('admin/assets/css/toastr.css')}}" >
+        <link rel="stylesheet" type="text/css" href="{{asset('admin/assets/css/bootstrap-tagsinput.css')}}" >
+        <style type="text/css">
+            .bootstrap-tagsinput .tag{
+                margin-right: 2px;
+                color: #b70000;
+                font-weight: 700px;
+            } 
+        </style>
+        
         <script src="{{asset('admin/assets/libs/jquery/jquery.min.js')}}"></script>
         <script src="{{ asset('admin/assets/libs/sweetalert2at10.js') }}"></script>
         <script src="{{ asset('admin/assets/js/code.js') }}"></script>
+        
+
     </head>
 
     <body data-topbar="dark">
@@ -252,6 +263,7 @@
           
           <script src="{{asset('admin/assets/js/app.js')}}"></script>
           <script type="text/javascript" src="{{asset('/admin/assets/libs/toastr.min.js')}}"></script>
+          <script src="{{asset('admin/assets/libs/bootstrap-tagsinput.min.js')}}" ></script>
          @if(Session::has('message')) 
             <script>           
                 var type = "{{ Session::get('alert-type','info') }}"

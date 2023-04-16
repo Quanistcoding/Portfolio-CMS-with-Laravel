@@ -27,7 +27,7 @@
                     {{$blog->category ? $blog->category->name : ''}}
                   </td>
                   <td>
-                    {{$blog->Tags}}
+                    {{$blog->tags}}
                   </td>
                   <td>
                     <img src = "{{asset($blog->image_url)}}" style = "width:120px" />
