@@ -33,7 +33,7 @@
                     <img src = "{{asset($blog->image_url)}}" style = "width:120px" />
                   </td>
                   <td>
-                    <a class = "btn btn-info" href = "{{route('admin.portfolio.edit',$blog->id)}}">Edit</a>
+                    <a class = "btn btn-info" href = "{{route('admin.blog.edit',$blog->id)}}">Edit</a>
                     <a class = "btn btn-danger" id = "delete" href = "{{route('admin.portfolio.delete',$blog->id)}}">Delete</a>
                   </td>
               </tr>

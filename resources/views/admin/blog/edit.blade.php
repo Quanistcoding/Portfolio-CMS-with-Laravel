@@ -1,32 +1,32 @@
 @extends('admin._layout')
 @section('content')
     <div class="container-fluid">
-      <h3>Edit Portfolio</h3>  
-      <form action = "{{route('admin.portfolio.edit.store')}}" method = "post" enctype="multipart/form-data">    
+      <h3>Edit Blog Post</h3>  
+      <form action = "{{route('admin.blog.edit.store')}}" method = "post" enctype="multipart/form-data">    
         @csrf
 
-        <input name = "id" value = "{{$portfolio->id}}" hidden>
+        <input name = "id" value = "{{$blog->id}}" hidden>
       
         <div class="row mb-3">
           <label for="title" class="col-sm-2 col-form-label">Title</label>
           <div class="col-sm-10">
-              <input class="form-control" type="text" id="title" name = "title" value = "{{$portfolio->title}}">
+              <input class="form-control" type="text" id="title" name = "title" value = "{{$blog->title}}">
           </div>
         </div>
 
         <div class="row mb-3">
-          <label for="sub_title" class="col-sm-2 col-form-label">Subtitle</label>
+          <label for="tags" class="col-sm-2 col-form-label">Tags</label>
           <div class="col-sm-10">
-              <input class="form-control" type="text" id="sub_title" name = "sub_title" value = "{{$portfolio->sub_title}}">
+              <input class="form-control" type="text" id="tags" name = "tags" data-role="tagsinput" value = "{{$blog->tags}}">
           </div>
-        </div>
+        </div>  
 
         <div class="row mb-3">
           <label for="category" class="col-sm-2 col-form-label">Category</label>
           <div class="col-sm-10">
               <select class="form-select" aria-label="Default select example" name = "category" id="category">
-                  @foreach ($portfolioCategories as $portfolioCategory)
-                  <option value="{{$portfolioCategory->id}}">{{$portfolioCategory->name}}</option>
+                  @foreach ($blogCategories as $blogCategory)
+                  <option value="{{$blogCategory->id}}">{{$blogCategory->name}}</option>
                   @endforeach
                   </select>
           </div>
@@ -41,12 +41,12 @@
         <div class="row mb-3">      
           <label for="firstName" class="col-sm-2 col-form-label"></label>      
           <div class="col-sm-10">
-              <img  src = "{{asset($portfolio->image_url)}}"id = "imageDisplay" style = "width:120px"/>
+              <img  src = "{{asset($blog->image_url)}}"id = "imageDisplay" style = "width:120px"/>
           </div>
         </div>
        
           <label for="imageUrl" class="col-sm-2 col-form-label">Description</label>
-          <textarea id="elm1" name="description">{{$portfolio->description}}</textarea>
+          <textarea id="elm1" name="description">{{$blog->description}}</textarea>
          
        
       <button class = "btn btn-primary btn-rounded waves-effect waves-light">Save</button>
