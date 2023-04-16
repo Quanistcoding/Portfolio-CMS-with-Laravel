@@ -98,7 +98,8 @@ class PortfolioController extends Controller
 
     public function portfolioDelete($id){
         $portfolio = Portfolio::findOrFail($id);
-        unlink($portfolio->image_url);
+        if($portfolio->image_url)
+            unlink($portfolio->image_url);
 
         PortfolioCategory::find($portfolio->category)->decrement('portfolio_count');
 

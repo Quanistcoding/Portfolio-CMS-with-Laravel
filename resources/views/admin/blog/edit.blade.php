@@ -22,9 +22,9 @@
         </div>  
 
         <div class="row mb-3">
-          <label for="category" class="col-sm-2 col-form-label">Category</label>
+          <label for="category_id" class="col-sm-2 col-form-label">Category</label>
           <div class="col-sm-10">
-              <select class="form-select" aria-label="Default select example" name = "category" id="category">
+              <select class="form-select" aria-label="Default select example" name = "category_id" id="category_id">
                   @foreach ($blogCategories as $blogCategory)
                   <option value="{{$blogCategory->id}}">{{$blogCategory->name}}</option>
                   @endforeach

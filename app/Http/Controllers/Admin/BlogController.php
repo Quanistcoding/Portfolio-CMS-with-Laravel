@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use App\Models\BlogCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Intervention\Image\Facades\Image;
 
 class BlogController extends Controller
@@ -34,7 +35,8 @@ class BlogController extends Controller
                 'title'=>$request->title,
                 'tags'=>$request->tags,
                 'category_id'=>$request->category_id,
-                'description'=>$request->description,
+                'description'=>$request->description,                
+                'created_at'=>Carbon::now(),
                 'image_url'=>$save_url
             ]);
         }else{
@@ -42,7 +44,8 @@ class BlogController extends Controller
                 'title'=>$request->title,
                 'tags'=>$request->tags,
                 'category_id'=>$request->category_id,
-                'description'=>$request->description
+                'description'=>$request->description,
+                'created_at'=>Carbon::now()
             ]);
         }
 
@@ -64,7 +67,7 @@ class BlogController extends Controller
         $request->validate([
             'title'=>'required'
         ]);
-        
+
         if($request->file('image_url')){
             $image = $request->file('image_url');
             $name = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
@@ -91,6 +94,21 @@ class BlogController extends Controller
             'alert-type'=>'success'
         );  
 
+        return redirect()->route('admin.blog')->with($notification);
+    }
+
+    public function blogDelete($id){
+        $blog = Blog::findOrFail($id);
+        if($blog->image_url)
+          unlink($blog->image_url);
+
+        $blog->delete();
+
+        $notification = array(
+            'message'=>'Blog deleted.',
+            'alert-type'=>'success'
+        );  
+    
         return redirect()->route('admin.blog')->with($notification);
     }
     public function blogCategory(){
