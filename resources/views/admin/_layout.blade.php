@@ -194,8 +194,8 @@
                                     <span>Blog</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded = "false">
-                                    <li><a href="{{route('admin.portfolio')}}">List</a></li>
-                                    <li><a href="{{route('admin.portfolio.add')}}">Add</a></li>
+                                    <li><a href="{{route('admin.blog')}}">List Posts</a></li>
+                                    <li><a href="{{route('admin.blog.add')}}">Add Post</a></li>
                                     <li>
                                         <a href="javascript: void(0);" class="has-arrow">Category</a>
                                         <ul class="sub-menu" aria-expanded="true">

@@ -60,9 +60,9 @@ Route::controller(PortfolioController::class)->middleware(['auth', 'verified'])-
 });
 
 Route::controller(BlogController::class)->middleware(['auth', 'verified'])->group(function(){
-    // Route::get('admin/portfolio','portfolio')->name('admin.portfolio');
-    // Route::get('admin/portfolio/add','portfolioAdd')->name('admin.portfolio.add');
-    // Route::post('admin/portfolio/add','portfolioAddStore')->name('admin.portfolio.add.store');  
+    Route::get('admin/blog','blog')->name('admin.blog');
+    Route::get('admin/blog/add','blogAdd')->name('admin.blog.add');
+    Route::post('admin/blog/add','blogAddStore')->name('admin.blog.add.store');  
     // Route::get('admin/portfolio/edit/{id}','portfolioEdit')->name('admin.portfolio.edit');
     // Route::post('admin/portfolio/edit','portfolioEditStore')->name('admin.portfolio.edit.store');
     // Route::get('admin/portfolio/delete/{id}','portfolioDelete')->name('admin.portfolio.delete');
