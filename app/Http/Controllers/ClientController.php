@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\About;
 use App\Models\Blog;
 use App\Models\PortfolioCategory;
+use App\Models\Profile;
 
 class ClientController extends Controller
 {
@@ -38,6 +39,17 @@ class ClientController extends Controller
 
         return view('client.portfolio.index',compact('portfolio'));
     }
+
+    public function blog(){
+        $blogs = Blog::all();
+        $blogCount = Blog::count();
+
+        $author = Profile::find(1);
+
+        return view('client.blog.list',compact('blogs','author','blogCount'));
+
+    }
+
 
     public function blogDetail($id){
         $blog = Blog::findOrFail($id);

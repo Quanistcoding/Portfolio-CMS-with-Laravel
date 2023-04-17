@@ -43,7 +43,7 @@
                         <div class="col-lg-8">
                             <div class="standard__blog__post">
                                 <div class="standard__blog__thumb">
-                                    <img src="assets/img/blog/blog_thumb01.jpg" alt="">
+                                    <img src="{{asset($blog->image_url)}}" alt="">
                                 </div>
                                 <div class="blog__details__content services__details__content">
                                     <ul class="blog__post__meta">

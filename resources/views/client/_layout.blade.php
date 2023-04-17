@@ -49,10 +49,10 @@
                                     </div>
                                     <div class="navbar__wrap main__menu d-none d-xl-flex">
                                         <ul class="navigation">
-                                            <li class="active"><a href="/">Home</a></li>
-                                            <li><a href="{{route('client.about')}}">About</a></li>
-                                            <li class="menu-item-has-children"><a href="{{route('client.portfolio.list',['page'=>1])}}">Portfolio</a></li>
-                                            <li class="menu-item-has-children"><a href="#">Our Blog</a>
+                                            <li class="{{request()->route()->uri == '/' ? 'active' : ''}}"><a href="/">Home</a></li>
+                                            <li class="{{Route::currentRouteName() == 'client.about' ? 'active' : ''}}"><a href="{{route('client.about')}}">About</a></li>
+                                            <li class="{{Route::currentRouteName() == 'client.portfolio.list' ? 'active' : ''}}"><a href="{{route('client.portfolio.list',['page'=>1])}}">Portfolio</a></li>
+                                            <li class="{{Route::currentRouteName() == 'client.blog.list' ? 'active' : ''}}"><a href="{{route('client.blog.list',['page'=>1])}}">Our Blog</a>
                                             </li>
                                             <li><a href="contact.html">contact me</a></li>
                                           
