@@ -49,10 +49,11 @@ class ClientController extends Controller
 
     }
 
-
-    public function blogDetail($id){
+    public function blogDetail($id){        
         $blog = Blog::findOrFail($id);
+        $previousPost = Blog::where('created_at', '<', $blog->created_at)->first();
+        $nextPost = Blog::where('created_at', '>', $blog->created_at)->first();
 
-        return view('client.blog.index',compact('blog'));
+        return view('client.blog.index',compact('blog','previousPost','nextPost'));
     }
 }

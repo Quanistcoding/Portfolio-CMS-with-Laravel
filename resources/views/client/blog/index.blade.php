@@ -78,31 +78,34 @@
                                 <div class="blog__next__prev">
                                     <div class="row justify-content-between">
                                         <div class="col-xl-5 col-md-6">
-                                            <div class="blog__next__prev__item">
-                                                <h4 class="title">Previous Post</h4>
-                                                <div class="blog__next__prev__post">
-                                                    <div class="blog__next__prev__thumb">
-                                                        <a href="blog-details.html"><img src="assets/img/blog/blog_prev.jpg" alt=""></a>
-                                                    </div>
-                                                    <div class="blog__next__prev__content">
-                                                        <h5 class="title"><a href="blog-details.html">Digital Marketing Agency Pricing Guide.</a></h5>
+                                            @if($previousPost != null)
+                                                <div class="blog__next__prev__item">
+                                                    <h4 class="title">Previous Post</h4>
+                                                    <div class="blog__next__prev__post">
+                                                        <div class="blog__next__prev__thumb">
+                                                            <a href="{{route('client.blog.detail',$previousPost->id)}}"><img src="{{asset($previousPost->image_url)}}" alt=""></a>
+                                                        </div>
+                                                        <div class="blog__next__prev__content">
+                                                            <h5 class="title"><a href="{{route('client.blog.detail',$previousPost->id)}}">{{$previousPost->title}}</a></h5>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            @endif                                            
                                         </div>
                                         <div class="col-xl-5 col-md-6">
-                                            <div class="blog__next__prev__item next_post text-end">
-                                                <h4 class="title">Next Post</h4>
-                                                <div class="blog__next__prev__post">
-                                                    <div class="blog__next__prev__thumb">
-                                                        <a href="blog-details.html"><img src="assets/img/blog/blog_next.jpg" alt=""></a>
-                                                    </div>
-                                                    <div class="blog__next__prev__content">
-                                                        <h5 class="title"><a href="blog-details.html">App Prototyping
-                                                        Types, Example & Usages.</a></h5>
+                                            @if($nextPost != null)
+                                                <div class="blog__next__prev__item next_post text-end">
+                                                    <h4 class="title">Next Post</h4>
+                                                    <div class="blog__next__prev__post">
+                                                        <div class="blog__next__prev__thumb">
+                                                            <a href="{{route('client.blog.detail',$nextPost->id)}}"><img src="{{asset($nextPost->image_url)}}" alt=""></a>
+                                                        </div>
+                                                        <div class="blog__next__prev__content">
+                                                            <h5 class="title"><a href="{{route('client.blog.detail',$nextPost->id)}}">{{$nextPost->title}}</a></h5>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            @endif 
                                         </div>
                                     </div>
                                 </div>
@@ -113,7 +116,7 @@
                                     <ul class="comment__list">
                                         <li class="comment__item">
                                             <div class="comment__thumb">
-                                                <img src="assets/img/blog/comment_thumb01.png" alt="">
+                                                <img src="{{asset('client/assets/img/blog/comment_thumb01.png')}}" alt="">
                                             </div>
                                             <div class="comment__content">
                                                 <div class="comment__avatar__info">
@@ -128,7 +131,7 @@
                                         </li>
                                         <li class="comment__item children">
                                             <div class="comment__thumb">
-                                                <img src="assets/img/blog/comment_thumb02.png" alt="">
+                                                <img src="{{asset('client/assets/img/blog/comment_thumb02.png')}}" alt="">
                                             </div>
                                             <div class="comment__content">
                                                 <div class="comment__avatar__info">
@@ -143,7 +146,7 @@
                                         </li>
                                         <li class="comment__item">
                                             <div class="comment__thumb">
-                                                <img src="assets/img/blog/comment_thumb03.png" alt="">
+                                                <img src="{{asset('client/assets/img/blog/comment_thumb03.png')}}" alt="">
                                             </div>
                                             <div class="comment__content">
                                                 <div class="comment__avatar__info">
@@ -158,7 +161,7 @@
                                         </li>
                                         <li class="comment__item children">
                                             <div class="comment__thumb">
-                                                <img src="assets/img/blog/comment_thumb04.png" alt="">
+                                                <img src="{{asset('client/assets/img/blog/comment_thumb04.png')}}" alt="">
                                             </div>
                                             <div class="comment__content">
                                                 <div class="comment__avatar__info">
