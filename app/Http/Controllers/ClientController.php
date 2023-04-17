@@ -15,12 +15,22 @@ class ClientController extends Controller
         return view('client.about.index',compact('about'));
     }
 
-    public function portfolio(){
-        $portfolios = Portfolio::latest()->get();
+    public function portfolio(Request $request){
+        $countsPerPage = 10;
+        $portfolioCount = Portfolio::count();
+        $paginationTabCount = ceil($portfolioCount / $countsPerPage);
+
+        if($request->page == null){
+            $portfolios = Portfolio::latest()->get();
+        }else{
+            $portfolios = Portfolio::latest()->skip($countsPerPage*($request->page-1))->take(10)->get();
+        };
+
         $categories = PortfolioCategory::all()->filter(function($category){
             return $category->portfolio_count > 0;
         });
-        return view('client.portfolio.list',compact('portfolios','categories'));
+        
+        return view('client.portfolio.list',compact('portfolios','categories','paginationTabCount'));
     }
 
     public function portfolioDetail($id){

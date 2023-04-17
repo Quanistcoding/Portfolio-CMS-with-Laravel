@@ -54,7 +54,7 @@
                                 <div class="col-lg-6 col-md-10">
                                     <div class="portfolio__inner__thumb">
                                         <a href="{{route('client.portfolio.detail',$portfolio->id)}}">
-                                            <img src="{{asset($portfolio->image_url)}}" alt="">
+                                            <img src="{{$portfolio->image_url ? asset($portfolio->image_url) : asset('upload/portfolio/no_image.png')}}" alt="">
                                         </a>
                                     </div>
                                 </div>
@@ -75,13 +75,16 @@
             </div>
             <div class="pagination-wrap">
                 <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#"><i class="far fa-long-arrow-left"></i></a></li>
-                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">...</a></li>
-                        <li class="page-item"><a class="page-link" href="#"><i class="far fa-long-arrow-right"></i></a></li>
+                    <ul class="pagination">                        
+                        @if(app('request')->input('page') > 1)
+                            <li class="page-item"><a class="page-link" href="{{route('client.portfolio.list',['page'=>app('request')->input('page')-1])}}"><i class="far fa-long-arrow-left"></i></a></li>
+                            <li class="page-item"><a class="page-link" href="{{route('client.portfolio.list',['page'=>app('request')->input('page')-1])}}">{{app('request')->input('page')-1}}</a></li>
+                        @endif
+                             <li class="page-item"><a class="page-link" href="#">{{app('request')->input('page')}}</a></li>
+                        @if(app('request')->input('page') < $paginationTabCount)
+                            <li class="page-item"><a class="page-link" href="{{route('client.portfolio.list',['page'=>app('request')->input('page')+1])}}">{{app('request')->input('page')+1}}</a></li>
+                            <li class="page-item"><a class="page-link" href="{{route('client.portfolio.list',['page'=>app('request')->input('page')+1])}}"><i class="far fa-long-arrow-right"></i></a></li>
+                        @endif
                     </ul>
                 </nav>
             </div>
