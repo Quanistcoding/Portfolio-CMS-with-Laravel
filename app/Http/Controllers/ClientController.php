@@ -42,11 +42,10 @@ class ClientController extends Controller
 
     public function blog(){
         $blogs = Blog::all();
-        $blogCount = Blog::count();
 
         $author = Profile::find(1);
 
-        return view('client.blog.list',compact('blogs','author','blogCount'));
+        return view('client.blog.list',compact('blogs','author'));
 
     }
 
