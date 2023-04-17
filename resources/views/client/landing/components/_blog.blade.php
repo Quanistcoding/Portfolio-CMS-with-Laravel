@@ -22,9 +22,6 @@
                     </div>
                 </div>
             @endforeach
-
-            
-            
         </div>
         <div class="blog__button text-center">
             <a href="blog.html" class="btn">more blog</a>

@@ -6,12 +6,21 @@ use App\Models\Portfolio;
 use Illuminate\Http\Request;
 use App\Models\About;
 use App\Models\Blog;
+use App\Models\PortfolioCategory;
 
 class ClientController extends Controller
 {
     public function aboutDetail(){
         $about=About::find(1);
         return view('client.about.index',compact('about'));
+    }
+
+    public function portfolio(){
+        $portfolios = Portfolio::latest()->get();
+        $categories = PortfolioCategory::all()->filter(function($category){
+            return $category->portfolio_count > 0;
+        });
+        return view('client.portfolio.list',compact('portfolios','categories'));
     }
 
     public function portfolioDetail($id){

@@ -77,6 +77,7 @@ Route::controller(BlogController::class)->middleware(['auth', 'verified'])->grou
 //Client
 Route::controller(ClientController::class)->group(function(){
     Route::get('client/about','aboutDetail')->name('client.about');
+    Route::get('client/portfolio','portfolio')->name('client.portfolio.list');
     Route::get('client/portfolio/{id}','portfolioDetail')->name('client.portfolio.detail');
     Route::get('client/blog/{id}','blogDetail')->name('client.blog.detail');
 });

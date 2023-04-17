@@ -51,13 +51,7 @@
                                         <ul class="navigation">
                                             <li class="active"><a href="/">Home</a></li>
                                             <li><a href="{{route('client.about')}}">About</a></li>
-                                            <li><a href="services-details.html">Services</a></li>
-                                            <li class="menu-item-has-children"><a href="#">Portfolio</a>
-                                                <ul class="sub-menu">
-                                                    <li><a href="portfolio.html">Portfolio</a></li>
-                                                    <li><a href="portfolio-details.html">Portfolio Details</a></li>
-                                                </ul>
-                                            </li>
+                                            <li class="menu-item-has-children"><a href="{{route('client.portfolio.list')}}">Portfolio</a></li>
                                             <li class="menu-item-has-children"><a href="#">Our Blog</a>
                                                 <ul class="sub-menu">
                                                     <li><a href="blog.html">Our News</a></li>
