@@ -11,13 +11,13 @@
                         <div class="blog__post__thumb">
                             <a href="blog-details.html"><img src="{{asset($blog->image_url)}}" alt=""></a>
                             <div class="blog__post__tags">
-                                <a href="blog.html">Story</a>
+                                <a href="{{route('client.blog.detail',$blog->id)}}">Story</a>
                             </div>
                         </div>
                         <div class="blog__post__content">
                             <span class="date">{{Carbon\Carbon::parse($blog->created_at)->diffForHumans()}}</span>
                             <h3 class="title"><a href="blog-details.html">{{$blog->title}}</a></h3>
-                            <a href="blog-details.html" class="read__more">Read mORe</a>
+                            <a href="{{route('client.blog.detail',$blog->id)}}" class="read__more">Read More</a>
                         </div>
                     </div>
                 </div>

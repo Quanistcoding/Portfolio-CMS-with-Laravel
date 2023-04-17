@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Portfolio;
 use Illuminate\Http\Request;
 use App\Models\About;
+use App\Models\Blog;
 
 class ClientController extends Controller
 {
@@ -17,5 +18,11 @@ class ClientController extends Controller
         $portfolio = Portfolio::findOrFail($id);
 
         return view('client.portfolio.index',compact('portfolio'));
+    }
+
+    public function blogDetail($id){
+        $blog = Blog::findOrFail($id);
+
+        return view('client.blog.index',compact('blog'));
     }
 }
