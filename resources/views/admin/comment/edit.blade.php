@@ -1,54 +1,47 @@
 @extends('admin._layout')
 @section('content')
     <div class="container-fluid">
-      <h3>Edit Blog Post</h3>  
-      <form action = "{{route('admin.blog.edit.store')}}" method = "post" enctype="multipart/form-data">    
+      <h3>Edit Blog Post Comment</h3>  
+      <form action = "{{route('admin.comment.edit.store')}}" method = "post" enctype="multipart/form-data">    
         @csrf
 
-        <input name = "id" value = "{{$blog->id}}" hidden>
+        <input name = "id" value = "{{$comment->id}}" hidden>
       
         <div class="row mb-3">
-          <label for="title" class="col-sm-2 col-form-label">Title</label>
+          <label for="author_name" class="col-sm-2 col-form-label">Author Name</label>
           <div class="col-sm-10">
-              <input class="form-control" type="text" id="title" name = "title" value = "{{$blog->title}}">
+              <input class="form-control" type="text" id="author_name" name = "author_name" value = "{{$comment->author_name}}">
           </div>
         </div>
 
         <div class="row mb-3">
-          <label for="tags" class="col-sm-2 col-form-label">Tags</label>
+          <label for="author_email" class="col-sm-2 col-form-label">Author Email</label>
           <div class="col-sm-10">
-              <input class="form-control" type="text" id="tags" name = "tags" data-role="tagsinput" value = "{{$blog->tags}}">
-          </div>
-        </div>  
-
-        <div class="row mb-3">
-          <label for="category_id" class="col-sm-2 col-form-label">Category</label>
-          <div class="col-sm-10">
-              <select class="form-select" aria-label="Default select example" name = "category_id" id="category_id">
-                  @foreach ($blogCategories as $blogCategory)
-                  <option value="{{$blogCategory->id}}">{{$blogCategory->name}}</option>
-                  @endforeach
-                  </select>
-          </div>
-      </div> 
-
-        <div class="row mb-3">
-          <label for="imageUrl" class="col-sm-2 col-form-label">Add Image</label>
-          <div class="col-sm-10">
-              <input class="form-control" type="file" id="imageUrl" name = "image_url">
+              <input class="form-control" type="text" id="author_email" name = "author_email" value = "{{$comment->author_email}}">
           </div>
         </div>
-        <div class="row mb-3">      
-          <label for="firstName" class="col-sm-2 col-form-label"></label>      
+
+        <div class="row mb-3">
+          <label for="author_phone" class="col-sm-2 col-form-label">Author Phone</label>
           <div class="col-sm-10">
-              <img  src = "{{asset($blog->image_url)}}"id = "imageDisplay" style = "width:120px"/>
+              <input class="form-control" type="text" id="author_phone" name = "author_phone" value = "{{$comment->author_phone}}">
           </div>
         </div>
-       
-          <label for="imageUrl" class="col-sm-2 col-form-label">Description</label>
-          <textarea id="elm1" name="description">{{$blog->description}}</textarea>
-         
-       
+
+        <div class="row mb-3">
+          <label for="author_website" class="col-sm-2 col-form-label">Author Website</label>
+          <div class="col-sm-10">
+              <input class="form-control" type="text" id="author_website" name = "author_website" value = "{{$comment->author_website}}">
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label for="content" class="col-sm-2 col-form-label">Content</label>
+          <div class="col-sm-10">
+              <textarea id="content" name = "content" class="form-control">{{$comment->content}}</textarea>
+          </div>
+        </div>
+
       <button class = "btn btn-primary btn-rounded waves-effect waves-light">Save</button>
     </form>
       </form>

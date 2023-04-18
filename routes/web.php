@@ -76,11 +76,11 @@ Route::controller(BlogController::class)->middleware(['auth', 'verified'])->grou
 });
 
 Route::controller(CommentController::class)->group(function(){
-    // Route::get('admin/profile/edit','edit')->name('admin.profile.edit');
-    // Route::post('admin/profile/edit/store','editStore')->name('admin.profile.edit.store');
+    Route::get('admin/comment/edit/{id}','edit')->name('admin.comment.edit');
+    Route::post('admin/comment/edit/store','editStore')->name('admin.comment.edit.store');
     Route::get('admin/comment','comment')->name('admin.comment');
+    Route::get('admin/comment/approve/{id}/{status}','commentApprove')->name('admin.comment.approve');
 });
-
 //Client
 Route::controller(ClientController::class)->group(function(){
     Route::get('about','aboutDetail')->name('client.about');

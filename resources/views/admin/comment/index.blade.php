@@ -20,7 +20,7 @@
                 @foreach($comments as $comment)
                 <tr style = "vertical-align: middle">
                   <td>
-                    $blog->title
+                    <a href = "{{route('client.blog.detail',$comment->post->id)}}">{{$comment->post->title}}</a>
                   </td>
                   <td>
                     {{$comment->author_name}}
@@ -42,8 +42,8 @@
                   </td>
 
                   <td>
-                    <a class = "btn btn-primary" href = "{{route('admin.blog.edit',$comment->id)}}">Approve</a>
-                    <a class = "btn btn-info" href = "{{route('admin.blog.edit',$comment->id)}}">Edit</a>
+                    <a class = "btn btn-primary" href = "{{route('admin.comment.approve',[$comment->id,$comment->approved])}}">Approve</a>
+                    <a class = "btn btn-info" href = "{{route('admin.comment.edit',$comment->id)}}">Edit</a>
                     <a class = "btn btn-danger" id = "delete" href = "{{route('admin.blog.delete',$comment->id)}}">Delete</a>
                   </td>
               </tr>
