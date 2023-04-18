@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('author_email');
             $table->string('author_phone')->nullable();
             $table->string('author_website')->nullable();
-            $table->string('content');
+            $table->text('content');
             $table->integer('post_id');
             $table->integer('parent_comment_id')->nullable();;
             $table->boolean('approved')->default(false);

@@ -15,4 +15,10 @@ class Comment extends Model
     public function post(){
         return $this->BelongsTo(Blog::class,'post_id','id');
     }
+
+    public function childrenComments(){
+
+
+        return $this->hasMany(Comment::class,'parent_comment_id','id')->where('approved','=',1);
+    }
 }

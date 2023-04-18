@@ -55,7 +55,7 @@ class ClientController extends Controller
         $blog = Blog::findOrFail($id);
         $previousPost = Blog::where('created_at', '<', $blog->created_at)->first();
         $nextPost = Blog::where('created_at', '>', $blog->created_at)->first();
-        $comments = Comment::latest()->where('post_id','=',$id)->where('approved','=',1)->get();
+        $comments = Comment::latest()->where('post_id','=',$id)->where('approved','=',1)->where('parent_comment_id','=',null)->get();
         return view('client.blog.index',compact('blog','previousPost','nextPost','comments'));
     }
 
