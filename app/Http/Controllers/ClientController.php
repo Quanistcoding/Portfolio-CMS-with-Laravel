@@ -70,7 +70,6 @@ class ClientController extends Controller
             'parent_comment_id'=>$request->parent_comment_id,
             'created_at'=>Carbon::now()
         ]);
-        dump('asdasdsa');
 
         return redirect()->back();
     }

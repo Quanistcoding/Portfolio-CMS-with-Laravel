@@ -41,4 +41,15 @@ class CommentController extends Controller
 
         return redirect()->route('admin.comment')->with($notification);
     }
+
+    public function commentDelete($id){
+        Comment::findOrFail($id)->delete();
+
+        $notification = array(
+            'message'=>'Comment deleted',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('admin.comment')->with($notification);
+    }
 }

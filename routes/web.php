@@ -80,6 +80,7 @@ Route::controller(CommentController::class)->group(function(){
     Route::post('admin/comment/edit/store','editStore')->name('admin.comment.edit.store');
     Route::get('admin/comment','comment')->name('admin.comment');
     Route::get('admin/comment/approve/{id}/{status}','commentApprove')->name('admin.comment.approve');
+    Route::get('admin/comment/delete/{id}','commentDelete')->name('admin.comment.delete');
 });
 //Client
 Route::controller(ClientController::class)->group(function(){
