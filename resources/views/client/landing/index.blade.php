@@ -41,7 +41,6 @@
                                         <li>Business Consulting</li>
                                         <li>Go To Market</li>
                                     </ul>
-                                    <a href="services-details.html" class="btn border-btn">Read more</a>
                                 </div>
                             </div>
                         </div>
@@ -62,8 +61,7 @@
                                         <li>UX Design</li>
                                         <li>Visual Design</li>
                                         <li>Information Architecture</li>
-                                    </ul>
-                                    <a href="services-details.html" class="btn border-btn">Read more</a>
+                                    </ul>                                    
                                 </div>
                             </div>
                         </div>
@@ -85,7 +83,6 @@
                                         <li>Visual Design</li>
                                         <li>Information Architecture</li>
                                     </ul>
-                                    <a href="services-details.html" class="btn border-btn">Read more</a>
                                 </div>
                             </div>
                         </div>
@@ -107,7 +104,6 @@
                                         <li>Visual Design</li>
                                         <li>Information Architecture</li>
                                     </ul>
-                                    <a href="services-details.html" class="btn border-btn">Read more</a>
                                 </div>
                             </div>
                         </div>
@@ -129,7 +125,6 @@
                                         <li>Visual Design</li>
                                         <li>Information Architecture</li>
                                     </ul>
-                                    <a href="services-details.html" class="btn border-btn">Read more</a>
                                 </div>
                             </div>
                         </div>
