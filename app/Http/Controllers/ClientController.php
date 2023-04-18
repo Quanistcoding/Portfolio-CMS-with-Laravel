@@ -6,6 +6,7 @@ use App\Models\Portfolio;
 use Illuminate\Http\Request;
 use App\Models\About;
 use App\Models\Blog;
+use App\Models\Comment;
 use App\Models\PortfolioCategory;
 use App\Models\Profile;
 
@@ -55,5 +56,20 @@ class ClientController extends Controller
         $nextPost = Blog::where('created_at', '>', $blog->created_at)->first();
 
         return view('client.blog.index',compact('blog','previousPost','nextPost'));
+    }
+
+    public function storePost(Request $request){
+        Comment::insert([
+            'author_name'=>$request->author_name,
+            'author_email'=>$request->author_email,
+            'author_phone'=>$request->author_phone,
+            'author_website'=>$request->author_website,
+            'content'=>$request->content,
+            'post_id'=>$request->post_id,
+            'parent_comment_id'=>$request->parent_comment_id,
+        ]);
+        dump('asdasdsa');
+
+        return redirect()->back();
     }
 }

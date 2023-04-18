@@ -81,7 +81,7 @@ Route::controller(ClientController::class)->group(function(){
     Route::get('portfolio/{id}','portfolioDetail')->name('client.portfolio.detail');
     Route::get('blog','blog')->name('client.blog.list');
     Route::get('blog/{id}','blogDetail')->name('client.blog.detail');
-
+    Route::post('blog/store','storePost')->name('client.posts');
 });
 
 

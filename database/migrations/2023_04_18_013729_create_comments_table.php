@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('author_website')->nullable();
             $table->string('content');
             $table->integer('post_id');
-            $table->integer('parent_comment_id');
-            $table->boolean('approved');
+            $table->integer('parent_comment_id')->nullable();;
+            $table->boolean('approved')->default(false);
             $table->timestamps();
         });
     }
