@@ -5,9 +5,27 @@
 
 <div class="comment comment__wrap">
     <div class="comment__title">
-        <h4 class="title">(04) Comment</h4>
+        <h4 class="title">({{count($comments)}}) Comment</h4>
     </div>
     <ul class="comment__list">
+        @foreach($comments as $comment)
+            <li class="comment__item">
+                <div class="comment__content">
+                    <div class="comment__avatar__info">
+                        <div class="info">
+                            <h4 class="title">{{$comment->author_name}}</h4>
+                            <span class="date">{{$comment->created_at}}</span>
+                        </div>
+                        <a href="#commentForm" class="reply"><i class="far fa-reply-all"></i></a>
+                    </div>
+                    <p>{{$comment->content}}</p>
+                </div>
+            </li>
+        @endforeach
+
+        
+
+
         <li class="comment__item">
             <div class="comment__thumb">
                 <img src="{{asset('client/assets/img/blog/comment_thumb01.png')}}" alt="">
@@ -70,6 +88,7 @@
         </li>
     </ul>
 </div>
+<div id = "commentForm" style = "height:10px"></div>
 <div class="comment__form">
     <div class="comment__title">
         <h4 class="title">Write your comment</h4>

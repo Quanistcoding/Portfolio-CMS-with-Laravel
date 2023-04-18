@@ -55,8 +55,8 @@ class ClientController extends Controller
         $blog = Blog::findOrFail($id);
         $previousPost = Blog::where('created_at', '<', $blog->created_at)->first();
         $nextPost = Blog::where('created_at', '>', $blog->created_at)->first();
-
-        return view('client.blog.index',compact('blog','previousPost','nextPost'));
+        $comments = Comment::latest()->where('post_id','=',$id)->where('approved','=',1)->get();
+        return view('client.blog.index',compact('blog','previousPost','nextPost','comments'));
     }
 
     public function storePost(Request $request){
