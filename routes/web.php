@@ -8,6 +8,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\PortfolioController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,6 +73,12 @@ Route::controller(BlogController::class)->middleware(['auth', 'verified'])->grou
     Route::get('admin/blog/category/edit/{id}','blogCategoryEdit')->name('admin.blog.category.edit');
     Route::post('admin/blog/category/edit','blogCategoryEditStore')->name('admin.blog.category.edit.store');
     Route::get('admin/blog/category/delete/{id}','blogCategoryDelete')->name('admin.blog.category.delete');
+});
+
+Route::controller(CommentController::class)->group(function(){
+    // Route::get('admin/profile/edit','edit')->name('admin.profile.edit');
+    // Route::post('admin/profile/edit/store','editStore')->name('admin.profile.edit.store');
+    Route::get('admin/comment','comment')->name('admin.comment');
 });
 
 //Client

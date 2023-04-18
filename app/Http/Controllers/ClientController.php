@@ -9,6 +9,7 @@ use App\Models\Blog;
 use App\Models\Comment;
 use App\Models\PortfolioCategory;
 use App\Models\Profile;
+use Carbon\Carbon;
 
 class ClientController extends Controller
 {
@@ -67,6 +68,7 @@ class ClientController extends Controller
             'content'=>$request->content,
             'post_id'=>$request->post_id,
             'parent_comment_id'=>$request->parent_comment_id,
+            'created_at'=>Carbon::now()
         ]);
         dump('asdasdsa');
 
