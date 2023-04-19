@@ -10,7 +10,7 @@
     <head>
         
         <meta charset="utf-8" />
-        <title>Dashboard | Upcube - Admin & Dashboard</title>
+        <title>Dashboard</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesdesign" name="author" />
@@ -102,8 +102,6 @@
                                 <!-- item-->
                                 <a class="dropdown-item" href="{{route('admin.profile')}}"><i class="ri-user-line align-middle me-1"></i> Profile</a>
                                 <a class="dropdown-item" href="{{route('admin.changePassword')}}"><i class="ri-wallet-2-line align-middle me-1"></i> Change Password</a>
-                                <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end mt-1">11</span><i class="ri-settings-2-line align-middle me-1"></i> Settings</a>
-                                <a class="dropdown-item" href="#"><i class="ri-lock-unlock-line align-middle me-1"></i> Lock screen</a>
                                 <div class="dropdown-divider"></div>
 
                                 <form method="POST" action="{{ route('logout') }}">
@@ -183,7 +181,7 @@
 
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                    <i class="ri-account-circle-line"></i>
+                                    <i class="ri-briefcase-5-fill"></i>
                                     <span>Portfolio</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded = "false">
@@ -201,7 +199,7 @@
 
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                    <i class="ri-account-circle-line"></i>
+                                    <i class="ri-file-list-line"></i>
                                     <span>Blog</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded = "false">
@@ -218,7 +216,7 @@
                             </li>
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow waves-effect">
-                                    <i class="ri-account-circle-line"></i>
+                                    <i class="ri-message-2-line"></i>
                                     <span>Post Comments</span>
                                 </a>
                                 <ul class="sub-menu" aria-expanded = "false">
